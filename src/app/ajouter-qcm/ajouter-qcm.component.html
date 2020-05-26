@@ -1,0 +1,70 @@
+<div class="container">
+<form >
+
+<div class="form-group">
+        <label for="idqcm">
+        Id QCM:
+        </label>
+        <input name="idqcm"   id="idqcm" [(ngModel)]="qcm.id"  type="number"   class="form-control"  disabled>
+</div>
+ <div class="form-group">
+    <label for="nomqcm">
+    Nom QCM:
+    </label>
+    <input name="nomqcm"   id="nomqcm" [(ngModel)]="qcm.nom"  type="text"   class="form-control"  placeholder="nom Qcm">
+</div>
+
+
+
+<div class="container" style="width:min-content; border: 2px solid rgb(10, 87, 240);border-radius: 5px;padding-bottom:10px ;"> 
+
+<div class="form-group">
+        <label for="idquestion">
+        Id Question:
+        </label>
+        <input name="idquestion"   id="idquestion" [(ngModel)]="question.id"  type="number"   class="form-control"  disabled>
+        
+</div>
+<div class="form-group">
+    <label for="ques">
+    Question:
+    </label>
+    <input name="ques"   id="ques" [(ngModel)]="question.question"  type="text"  #ques="ngModel" class="form-control"  placeholder="tapez une question" required>
+    
+</div>
+<div class="form-group">
+    <label for="assurance">
+    Type de reponse:
+    </label>
+    <pre>
+                  <input name="type" class="form-check-input" [(ngModel)]="question.type" value="unerep"  type="radio"  ><span style="color: rgb(10, 87, 240);font-size: large;">seule reponse</span>      <input name="type"   class="form-check-input" [(ngModel)]="question.type" value="plusrep"  type="radio"   ><span style="color: red ; font-size: large;">plusieurs reponse</span> 
+    </pre>
+
+</div> 
+<div class="form-group" style="position: relative;">
+    <label for="prop">
+    propostion:
+    </label>
+    <input style="width: 50%;" name="prop" #pro="ngModel"  id="prop" [(ngModel)]="prop"  type="text"   class="form-control"  placeholder="tapez une propostion" required>
+
+    <button style="position: absolute;top:5vh;left:20vw;" (click)="onAjouterProp()" title="autre proposition">ajouter </button>
+</div>
+
+<div class="form-group" style="position: relative;">
+    <label for="rep">
+    reponse :
+    </label>
+    <input style="width: 50%;" name="rep"   id="nomques" [(ngModel)]="rep"  type="text"   class="form-control"  placeholder="tapez une reponse">
+    <button  style="position: absolute;top:5vh;left:20vw;" [disabled]="(question.type=='unerep')?true:false"(click)="onAjouterRep()"title="autre reponse" >ajouter </button>
+</div>
+
+
+<button  (click)="onAjouteq()"  class="container">ajouter une autre question </button>
+
+
+</div>
+<br>
+<button  (click)="onAjoute()" >ajouter autre Qcm </button>
+
+</form>
+</div>

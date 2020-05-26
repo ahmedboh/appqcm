@@ -1,0 +1,9 @@
+<h1>les Qcms</h1>
+<ul>
+    <li *ngFor="let t of tab" class="list-group-item  "  >
+       id Qcm: {{t.id}}<br>
+       Nom Qcm : {{t.nom}}<br>
+       nombre de questions: {{t.nbrq}}<br>
+       <button [routerLink]="['/afficher/passerQcm/',t.id]" class="btn btn-info">passer Qcm </button> 
+    </li>
+</ul>
